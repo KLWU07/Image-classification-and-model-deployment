@@ -1,3 +1,35 @@
+文件最终结构
+Image-classification-and-model-deployment/
+├── server/
+│   ├── app.py               # Flask服务端代码
+│   ├── model.py             # AlexNet模型定义，由train/里复制过来
+│   ├── requirements.txt     # 服务端依赖
+│   └── model/
+│       ├── AlexNet-flower.pth    # 训练好的模型权重，由train/里复制过来
+│       └── class_indices.json    # 类别标签文件，由train/里复制过来
+└── client/
+│   ├── gui_app.py           # 客户端GUI代码
+│   └── requirements.txt     # 客户端依赖
+├── train/                   # 训练模型文件夹
+│   ├── model.py             # AlexNet模型定义
+│   ├── train.py             # 训练模型文件
+│   ├── predict.py           # 训练好的模型使用一张图片预测文件
+│   └── class_indices.json   # 训练模型时生成文件
+└── data_set/
+│   ├── flower_data          # 数据集
+│   │   ├── flower_photos/   # 官网公开数据集
+│   │       ├── daisy/       # 里面是自己种类图片
+│   │       ├── dandelion/   # 图片
+│   │       ├── roses/       # 图片
+│   │       ├── sunflowers/  # 图片
+│   │       └──tulips/       # 图片
+│   │   ├──train/            # 训练集图片,里面结构和flower_photos一样
+│   │   └──val/              # 验证集图片,里面结构和flower_photos一样
+│   └── split_data.py        # 划分数据集文件，争对flower_photos文件夹里数据划分成train和val两个文件夹
+└── requirements.txt         # 在本地端pycharm终端生成的文件，方面在服务器端创建相同环境，安装相同版本的库，三个requirements.txt文件相同。
+
+
+
 # 深度学习模型部署：使用Flask将图像分类（5类）模型部署在服务器上，然后在本地GUI调用。（全网模型部署项目步骤详解：从模型训练到部署再到调用）
 # 具体内容可以参考个人博客https://blog.csdn.net/qq_55433305/article/details/148118072?spm=1001.2014.3001.5501
 # 由于不能上传数据集和模型文件，所以原代码都上传，文件过大。
